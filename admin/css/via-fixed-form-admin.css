@@ -1,0 +1,11 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.vff-metaboxes fieldset{
+	min-height: 30px;
+}
+.vff-metaboxes h2{
+	margin-bottom: 25px !important;
+}

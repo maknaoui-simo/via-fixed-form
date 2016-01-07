@@ -1,0 +1,305 @@
+/* Via Fixed Form
+ * @autor : Maknaoui Mohamed
+ * @date : 2015-12-20
+ * @version : 1.0
+ */
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?18917487');
+  src: url('../font/fontello.eot?18917487#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?18917487') format('woff'),
+       url('../font/fontello.ttf?18917487') format('truetype'),
+       url('../font/fontello.svg?18917487#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?18917487#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-up-open-big:before { content: '\e800'; } /* '' */
+.icon-down-open-big:before { content: '\e801'; } /* '' */
+.icon-cancel:before { content: '\e802'; } /* '' */
+
+#vff{
+	display: block;
+	width: 100%;
+	height: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99999;
+}
+#vff .left-form{
+	width: 65%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#vff .right-form{
+	width: 35%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#vff-trigger-left,
+#vff-trigger-right{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  padding: 2px 20px 2px 60px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-backface-visibility: hidden;
+  transition-delay: .1s;
+  -webkit-transition-delay: .1s;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+#vff-trigger-left:before,
+#vff-trigger-left:after,
+#vff-trigger-right:before,
+#vff-trigger-right:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  top:0;
+  bottom:0;
+  left:10px;
+  right:10px;
+  -moz-border-radius:100px / 10px;
+  border-radius:100px / 10px;
+}
+#vff-trigger-left:after,
+#vff-trigger-right:after{
+  right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+#vff-trigger-left span.toggle-icon,
+#vff-trigger-right span.toggle-icon{
+    position: absolute;
+    top: -15px;
+    background: #fff;
+    left: 20px;
+    border-radius: 6px;
+    border: 2px solid #677390;
+    color: #677390;
+    font-weight: bold;
+}
+#vff-trigger-right,
+#vff-right{
+  margin-left: 5px;
+}
+#vff-left,
+#vff-right{
+	position: absolute;
+	padding: 20px;
+  font-size: 13px;
+	z-index: 100000;
+	width: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -ms-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-backface-visibility: hidden;
+    transition-delay: .1s;
+    -webkit-transition-delay: .1s;
+    -webkit-font-smoothing: antialiased;
+}
+#vff-left-ext{
+  display: block;
+  position: absolute;
+  right: -300px;
+  background: #50286D;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  border-radius: 0 6px 0 0;
+  padding: 15px;
+  box-shadow: inset 0 0 38px rgba(0,0,0,.3);
+}
+/*------------------- OVERLAY ----------------------*/
+#vff-overlay-wrapper{
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+#vff-overlay{
+	opacity: 0.3;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    background: #333;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    cursor: pointer;
+    -webkit-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -ms-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: .2s;
+    -webkit-transition-delay: .2s;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+}
+#vff-overlay:hover{
+	cursor: pointer;
+	cursor: url('../img/close2.png') 16 16, pointer;
+}
+.form-notes{
+  font-size: 11px;
+  line-height: 14px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+/* Placeholder text color -- selectors need to be separate to work. */
+#vff ::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+#vff :-moz-placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+#vff ::-moz-placeholder {
+  color: #fff;
+  font-size: 13px;
+  opacity: 1;
+  /* Since FF19 lowers the opacity of the placeholder by default */
+}
+
+#vff :-ms-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+#vff textarea{
+  height: 150px;
+  max-height: 150px;
+}
+#vff input[type=text],
+#vff input[type=tel],
+#vff input[type=email],
+#vff input[type=url],
+#vff textarea{
+  padding: 4px 10px;
+  border: 1px solid #50286D;
+  border-radius: 0;
+  color: #50286D;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+}
+#vff-left-ext input[type=text],
+#vff-left-ext input[type=tel]{
+  padding: 4px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 0;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.15);
+  font-family: inherit;
+}
+#vff p{
+  margin-bottom: 10px;
+}
+#vff .wpcf7-not-valid-tip{
+  display: none !important;
+}
+input.wpcf7-not-valid,
+textarea.wpcf7-not-valid{
+  border-color: #F44336 !important;
+}
+/* Responsive */
+@media (min-width: 768px){
+	#vff {
+	    width: 750px;
+	}
+}
+@media (min-width: 992px){
+	#vff {
+	    width: 900px;
+	}
+}
